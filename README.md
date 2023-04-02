@@ -10,5 +10,5 @@ antixss($_GET['yourparameter']);
 antixss($_POST['variable']);
 <br><br>
 <b>Example in Code Igniter:</b><br>
-$post = $this->input->post();
+$post = $this->input->post();<br>
 antixss($post['yourvariable']);
