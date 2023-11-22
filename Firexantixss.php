@@ -1,6 +1,16 @@
 <?php
 	Class Firexantixss{
-			
+			/*
+      *************************************************
+      * Library Name: Firexantixss                    *
+      * Author: Firman Santosa                        *
+      * Web: https://www.sifirman.com                 *
+      * Email: admin@sifirman.com                     *
+      * Github: https://github.com/firexsantos        *
+      * Created on: October 25, 2019 02:03 WIB        *
+      * Licence: GPL-MIT Licence                      *
+      *************************************************
+      */
 	}
 
 function antixss($string, $allowed_tags = array('a', 'em', 'strong', 'cite', 'blockquote', 'code', 'ul', 'ol', 'li', 'dl', 'dt', 'dd', 'p')) {
@@ -8,7 +18,7 @@ function antixss($string, $allowed_tags = array('a', 'em', 'strong', 'cite', 'bl
     return '';
   }
   _filter_xss_split($allowed_tags, TRUE);
-  $string = str_replace(chr(0), '', $string);
+  $string = str_replace(chr(0), '', (string)$string);
   $string = preg_replace('%&\s*\{[^}]*(\}\s*;?|$)%', '', $string);
   $string = str_replace('&', '&amp;', $string);
   $string = preg_replace('/&amp;#([0-9]+;)/', '&#\1', $string);
@@ -216,7 +226,7 @@ function decode_entities($text) {
 
 
 function validate_utf8($text) {
-  if (strlen($text) == 0) {
+  if (strlen((string)$text) == 0) {
     return TRUE;
   }
   return (preg_match('/^./us', $text) == 1);
